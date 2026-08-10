@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tugas Pintar — To-Do List</title>
+  <meta name="description" content="Senarai tugasan ringkas, pantas dan tersusun." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">TUGAS PINTAR</p>
+        <h1>Urus tugas.<br><span>Siap dengan tenang.</span></h1>
+        <p class="subtitle">Senaraikan apa yang perlu dibuat, fokus pada perkara penting, dan tandakan satu demi satu.</p>
+      </div>
+      <div class="date-card">
+        <span id="todayLabel">Hari ini</span>
+        <strong id="todayDate">—</strong>
+      </div>
+    </section>
+
+    <section class="composer card">
+      <form id="todoForm">
+        <input id="todoInput" type="text" maxlength="120" placeholder="Apa yang perlu dibuat?" autocomplete="off" required />
+        <select id="priorityInput" aria-label="Keutamaan">
+          <option value="normal">Biasa</option>
+          <option value="high">Penting</option>
+          <option value="low">Rendah</option>
+        </select>
+        <button type="submit">+ Tambah tugas</button>
+      </form>
+    </section>
+
+    <section class="toolbar card">
+      <div class="filters" role="tablist" aria-label="Tapis tugas">
+        <button class="filter active" data-filter="all">Semua</button>
+        <button class="filter" data-filter="active">Belum siap</button>
+        <button class="filter" data-filter="completed">Selesai</button>
+      </div>
+      <button id="clearCompleted" class="ghost">Padam yang selesai</button>
+    </section>
+
+    <section class="stats">
+      <div class="stat card"><span>Jumlah</span><strong id="totalCount">0</strong></div>
+      <div class="stat card"><span>Belum siap</span><strong id="activeCount">0</strong></div>
+      <div class="stat card"><span>Selesai</span><strong id="completedCount">0</strong></div>
+    </section>
+
+    <section class="list-card card">
+      <div class="list-heading"><h2>Senarai tugas</h2><span id="progressText">0% selesai</span></div>
+      <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+      <ul id="todoList" aria-live="polite"></ul>
+      <div id="emptyState" class="empty-state hidden">
+        <div class="empty-icon">✓</div>
+        <h3>Tiada tugas di sini</h3>
+        <p>Tambah tugasan baru dan mula bergerak.</p>
+      </div>
+    </section>
+
+    <footer>Disimpan secara automatik dalam pelayar anda.</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
